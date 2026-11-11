@@ -4,8 +4,6 @@
 #include "instrucao.h"
 #include "ram.h"
 
-#define PALAVRAS_POR_BLOCO 4
-
 typedef struct{
     int palavra[PALAVRAS_POR_BLOCO];
     int status; // 0 desatualizado 1 para atualizado
