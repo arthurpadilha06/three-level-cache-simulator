@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "cache.h"
+#include "cpu.h"
 
 // Criacao das caches
 void criarCache(CACHE *cacheX, int tamanho){
@@ -93,7 +94,7 @@ BlocoMemoria buscarNasMemorias(Endereco e, int tamanhoRAM, RAM *ram, CACHE *cach
     //procurar na cache 1 de forma direta
     if(getDadoCACHE(cache1, endCache).atualizado == 1 && getDadoCACHE(cache1, endCache).endBloco == e.endBloco){
         BlocoMemoria m = getDadoCACHE(cache1, endCache);
-        m.custo += 10;
+        m.custo += CUSTO_CACHE1;
         m.cacheHit = 1;
         setDadoCACHE(cache1, endCache, m);
         
@@ -104,7 +105,7 @@ BlocoMemoria buscarNasMemorias(Endereco e, int tamanhoRAM, RAM *ram, CACHE *cach
     for(int i = 0; i < cache1->tamanho; i++){
         if(getDadoCACHE(cache1, i).atualizado == 1 && getDadoCACHE(cache1, i).endBloco == e.endBloco){
             BlocoMemoria m = getDadoCACHE(cache1, i);
-            m.custo += 10;
+            m.custo += CUSTO_CACHE1;
             m.cacheHit = 1;
             setDadoCACHE(cache1, i, m);
             
@@ -117,7 +118,7 @@ BlocoMemoria buscarNasMemorias(Endereco e, int tamanhoRAM, RAM *ram, CACHE *cach
     //procurarna cache 2 de forma direta
     if(getDadoCACHE(cache2, endCache).atualizado == 1 && getDadoCACHE(cache2, endCache).endBloco == e.endBloco){
         BlocoMemoria blocoHit = getDadoCACHE(cache2, endCache);
-        blocoHit.custo += 110;
+        blocoHit.custo += CUSTO_CACHE2;
         blocoHit.cacheHit = 2;
         setDadoCACHE(cache2, endCache, blocoHit);
 
@@ -133,7 +134,7 @@ BlocoMemoria buscarNasMemorias(Endereco e, int tamanhoRAM, RAM *ram, CACHE *cach
     for(int i = 0; i < cache2->tamanho; i++){
         if(getDadoCACHE(cache2, i).atualizado == 1 && getDadoCACHE(cache2, i).endBloco == e.endBloco){
             BlocoMemoria blocoHit = getDadoCACHE(cache2, i);
-            blocoHit.custo += 110;
+            blocoHit.custo += CUSTO_CACHE2;
             blocoHit.cacheHit = 2;
             setDadoCACHE(cache2, i, blocoHit);
 
@@ -152,7 +153,7 @@ BlocoMemoria buscarNasMemorias(Endereco e, int tamanhoRAM, RAM *ram, CACHE *cach
     //procurarna cache 3 de forma direta
     if(getDadoCACHE(cache3, endCache).atualizado == 1 && getDadoCACHE(cache3, endCache).endBloco == e.endBloco){
         BlocoMemoria blocoHit = getDadoCACHE(cache3, endCache);
-        blocoHit.custo += 1110;
+        blocoHit.custo += CUSTO_CACHE3;
         blocoHit.cacheHit = 3;
         setDadoCACHE(cache3, endCache, blocoHit);
         
@@ -173,7 +174,7 @@ BlocoMemoria buscarNasMemorias(Endereco e, int tamanhoRAM, RAM *ram, CACHE *cach
     for(int i = 0; i < cache3->tamanho; i++){
         if(getDadoCACHE(cache3, i).atualizado == 1 && getDadoCACHE(cache3, i).endBloco == e.endBloco){
             BlocoMemoria blocoHit = getDadoCACHE(cache3, i);
-            blocoHit.custo += 1110;
+            blocoHit.custo += CUSTO_CACHE3;
             blocoHit.cacheHit = 3;
             setDadoCACHE(cache3, i, blocoHit);
             
@@ -194,7 +195,7 @@ BlocoMemoria buscarNasMemorias(Endereco e, int tamanhoRAM, RAM *ram, CACHE *cach
     for(int i = 0; i < tamanhoRAM; i++){
         if(getDadoRAM(ram, i).atualizado == 1 && getDadoRAM(ram, i).endBloco == e.endBloco){
             BlocoMemoria blocoHit = getDadoRAM(ram, i);
-            blocoHit.custo += 11110000;
+            blocoHit.custo += CUSTO_RAM;
             blocoHit.cacheHit = 4;
             setDadoRAM(ram, i, blocoHit);
 

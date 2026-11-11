@@ -17,6 +17,12 @@ typedef struct {
     int tamanho;
 } CACHE;
 
+/* Custos hipoteticos de cada acesso */
+#define CUSTO_CACHE1 10
+#define CUSTO_CACHE2 110
+#define CUSTO_CACHE3 1110
+#define CUSTO_RAM    11110000
+
 // Criacao da CACHE
 void criarCache(CACHE *cacheX, int tamanho);
 

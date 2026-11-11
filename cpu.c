@@ -4,14 +4,6 @@
 
 #include "cpu.h"
 
-
-/* Custos hipoteticos de cada acesso */
-#define CUSTO_CACHE1 10
-#define CUSTO_CACHE2 110
-#define CUSTO_CACHE3 1110
-#define CUSTO_RAM    11110
-
-
 /* Verifica se o endereco da palavra e valido */
 int enderecoValido(Endereco endereco){
 
