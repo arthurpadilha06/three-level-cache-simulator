@@ -102,7 +102,7 @@ int escreverPalavraUCM(CPU *cpu, RAM *ram, Endereco endereco, int valor){
 /* Mostra a tabela de resultados da execucao */
 void imprimirResultados(CPU *cpu){
 
-    int total = cpu->hitCache1 + cpu->hitCache2 + cpu->hitCache3 + cpu->hitRAM;
+    long long int total = cpu->hitCache1 + cpu->hitCache2 + cpu->hitCache3 + cpu->hitRAM;
 
     if(total == 0){
         printf("Nenhum acesso a memoria.\n");
@@ -110,17 +110,17 @@ void imprimirResultados(CPU *cpu){
     }
 
     /* cada nivel so e consultado quando o anterior falhou */
-    int acessos2 = total - cpu->hitCache1;
-    int acessos3 = acessos2 - cpu->hitCache2;
+    long long int acessos2 = total - cpu->hitCache1;
+    long long int acessos3 = acessos2 - cpu->hitCache2;
 
     printf("\n%-8s %10s %10s %10s\n", "Memoria", "Hit", "Miss", "Taxa hit");
-    printf("%-8s %10d %10d %9.2f%%\n", "Cache 1", cpu->hitCache1, total - cpu->hitCache1,
+    printf("%-8s %10lld %10lld %9.2f%%\n", "Cache 1", cpu->hitCache1, total - cpu->hitCache1,
            100.0 * cpu->hitCache1 / total);
-    printf("%-8s %10d %10d %9.2f%%\n", "Cache 2", cpu->hitCache2, acessos2 - cpu->hitCache2,
+    printf("%-8s %10lld %10lld %9.2f%%\n", "Cache 2", cpu->hitCache2, acessos2 - cpu->hitCache2,
            acessos2 ? 100.0 * cpu->hitCache2 / acessos2 : 0.0);
-    printf("%-8s %10d %10d %9.2f%%\n", "Cache 3", cpu->hitCache3, acessos3 - cpu->hitCache3,
+    printf("%-8s %10lld %10lld %9.2f%%\n", "Cache 3", cpu->hitCache3, acessos3 - cpu->hitCache3,
            acessos3 ? 100.0 * cpu->hitCache3 / acessos3 : 0.0);
-    printf("%-8s %10d\n", "RAM", cpu->hitRAM);
+    printf("%-8s %10lld\n", "RAM", cpu->hitRAM);
     printf("\nTotal de acessos: %d\n", total);
     printf("Tempo hipotetico de execucao: %lld\n", cpu->custo);
 }

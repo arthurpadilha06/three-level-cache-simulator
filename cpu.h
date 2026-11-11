@@ -16,10 +16,10 @@ typedef struct {
     long long custo;   // tempo hipotetico de execucao (soma dos custos de cada acesso)
 
     /* Estatisticas da UCM: onde cada acesso encontrou o bloco */
-    int hitCache1;
-    int hitCache2;
-    int hitCache3;
-    int hitRAM;
+    long long int hitCache1;
+    long long int hitCache2;
+    long long int hitCache3;
+    long long int hitRAM;
 
     int registrador1;
     int registrador2;
