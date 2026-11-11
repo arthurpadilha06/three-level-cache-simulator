@@ -4,10 +4,10 @@
 #include "instrucao.h"
 #include "ram.h"
 
-#define TAM_PALAVRA 4
+#define PALAVRAS_POR_BLOCO 4
 
 typedef struct{
-    int palavra[TAM_PALAVRA];
+    int palavra[PALAVRAS_POR_BLOCO];
     int status; // 0 desatualizado 1 para atualizado
 } Memoria;
 

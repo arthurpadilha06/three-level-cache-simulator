@@ -1,8 +1,8 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "cpu.h"
+#include "cache.h"
 
 /* Verifica se o endereco da palavra e valido */
 int enderecoValido(Endereco endereco){
