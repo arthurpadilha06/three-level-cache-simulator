@@ -121,7 +121,7 @@ void imprimirResultados(CPU *cpu){
     printf("%-8s %10lld %10lld %9.2f%%\n", "Cache 3", cpu->hitCache3, acessos3 - cpu->hitCache3,
            acessos3 ? 100.0 * cpu->hitCache3 / acessos3 : 0.0);
     printf("%-8s %10lld\n", "RAM", cpu->hitRAM);
-    printf("\nTotal de acessos: %d\n", total);
+    printf("\nTotal de acessos: %lld\n", total);
     printf("Tempo hipotetico de execucao: %lld\n", cpu->custo);
 }
 
