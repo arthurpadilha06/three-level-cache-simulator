@@ -253,7 +253,7 @@ BlocoMemoria moveCache2para1(int endHit, CACHE *cache2, CACHE *cache1){
     }
     // encontrar um endereco que o custo seja maior que o de cache 2
     for(int i = 0; i < cache1->tamanho; i++){
-        if(getDadoCACHE(cache1, i).custo > 110){ 
+        if(getDadoCACHE(cache1, i).custo < 22220){ 
             blocoAUX = getDadoCACHE(cache1, i);
             setDadoCACHE(cache1, i, getDadoCACHE(cache2, endHit));
             setDadoCACHE(cache2, endHit, blocoAUX);
@@ -300,7 +300,7 @@ int moveCache3para2(int endHit, CACHE *cache3, CACHE *cache2){
     }
     // encontrar um endereco que o custo seja maior que o de cache 2
     for(int i = 0; i < cache2->tamanho; i++){
-        if(getDadoCACHE(cache2, i).custo > 110){ 
+        if(getDadoCACHE(cache2, i).custo < 22220){ 
             blocoAUX = getDadoCACHE(cache2, i);
             setDadoCACHE(cache2, i, getDadoCACHE(cache3, endHit));
             setDadoCACHE(cache3, endHit, blocoAUX);
@@ -348,7 +348,7 @@ int moveRamparaCache3(int endHit, RAM *ram, CACHE *cache3){
     }
     // encontrar um endereco que o custo seja maior que o de cache 2
     for(int i = 0; i < cache3->tamanho; i++){
-        if(getDadoCACHE(cache3, i).custo > 110){ 
+        if(getDadoCACHE(cache3, i).custo < 22220){ 
             blocoAUX = getDadoCACHE(cache3, i);
             setDadoCACHE(cache3, i, getDadoRAM(ram, endHit));
             setDadoRAM(ram, endHit, blocoAUX);
